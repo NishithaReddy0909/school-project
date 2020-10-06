@@ -1,0 +1,50 @@
+<h1><marquee>Student Details of our school</marquee></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <label>First Name:</label>
+      <input type="text" class="form-group" (keyup.enter)="onkey()">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <label>Last Name:</label>
+      <input type="text" class="form-group">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <label>Date of Birth:</label>
+      <input type="date" class="form-group">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <label>Mobile Number:</label>
+      <input type="text" class="form-group" #student (keyup.enter)="onkeyup(student.value)" >
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <label>Gender</label>
+      <input type="radio" name="Gender"/>Female
+      <input type="radio" name="Gender"/>Male
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <button [style.borderColor]="isActive?'darkblue':'red'" class="btn btn btn-outline-success" (click)="onsubmit()">Submit</button>
+    </div>
+
+  <div class="col-lg-6" style="float:right">
+    <img src={{imgsrc}} width="200" height="200">
+    <img src={{imgonline}} width="200" height="200">
+  </div>
+  </div>
+</div>
+<div class="row" (click)="parent()">
+  <div class="col-lg-8">
+  <button class="btn btn btn-outline-warning" (click)="onreset($event)">Reset</button>
+  </div>
+
+</div>

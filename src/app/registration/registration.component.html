@@ -1,0 +1,94 @@
+<div class="container">
+  <h2 style="text-align:left">Registration Form</h2>
+  <div class="row">
+    <div class="col-md-8">
+      <form #userData="ngForm">
+        {{userData.value|json}}
+        <hr>
+        {{userModel|json}}
+        <div class="col-md-9 border border-maroon  shadow-lg" style="padding:20px;background-color:palegreen">
+
+          <div class="form-group row">
+            <label class="col-md-6">First Name</label>
+            <div class="col-md-5">
+
+              <input required #firstname="ngModel" [(ngModel)]="userModel.firstName" name="firstname" autocomplete="off"
+                type="text" class="form-control" [class.is-invalid]="firstname.invalid && firstname.touched">
+              <div class="text-danger" [class.d-none]="firstname.valid || firstname.untouched"> First name is required
+              </div>
+            </div>
+          </div>
+
+
+          <div class=" form-group row">
+
+            <label class="col-lg-6">Last Name</label>
+            <div class="col-md-5">
+              <input type="text" class="form-inline" required placeholder="Enter your Last Name" #lastName="ngModel"
+                [(ngModel)]="userModel.lastName" autocomplete="off"
+              [class.is-isvalid]="lastName.invalid && lastName.touched">
+              <div class="text-danger" [class.d-none]="lastName.valid && lastName.untouched" Last Name required></div>
+            </div>
+          </div>
+          <div class=" form-group row">
+
+            <label class="col-lg-6">Email Id</label>
+            <div class="col-md-5">
+              <input #emailId="ngModel" [(ngModel)]="userModel.emailId" name="emailId" autocomplete="off" type="text"
+             class="form-inline" pattern="^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$" [class.is-invalid]="emailId.invalid && emailId.touched">
+
+          <div *ngIf="emailId.errors">
+            <div class="text-danger" *ngIf="emailId.errors.required">Email Id is Required</div>
+            <div class="text-danger" *ngIf="emailId.errors.pattern">please enter the correct format of email</div>
+          </div>
+
+            </div>
+          </div>
+            <div class=" form-group row">
+
+              <label class="col-lg-6">Password</label>
+              <div class="col-md-5">
+                <input required #password="ngModel" [(ngModel)]="userModel.password" name="password" autocomplete="off"
+                type="password" class="form-control" [class.is-invalid]="password.invalid && password.touched" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+               <div *ngIf="password.errors">
+            <div class="text-danger" *ngIf="password.errors.required">password is Required</div>
+            <div class="text-danger" *ngIf="password.errors.pattern">Please enter the correct format of password</div>
+          </div>
+
+              </div>
+            </div>
+            <div class=" form-group row">
+
+              <label class="col-lg-6"> Confirm Password</label>
+              <div class="col-md-5">
+                <input required #confirmPassword="ngModel" [(ngModel)]="userModel.confirmPassword" name="confirmPassword" autocomplete="off"
+                type="password" class="form-inline" [class.is-invalid]="confirmPassword.invalid && confirmPassword.touched" (keyup.enter)="onKey()" >
+
+
+                </div>
+            </div>
+
+            <div class=" form-group row">
+
+              <label class="col-lg-6">Mobile Number</label>
+              <div class="col-md-6">
+                <input #mobileNumber="ngModel" [(ngModel)]="userModel.mobileNumber" name="mobileNumber" autocomplete="off" type="tel"
+            required class="form-inline" pattern="^\d{10}$" [class.is-invalid]="mobileNumber.invalid && mobileNumber.touched">
+
+          <div *ngIf="mobileNumber.errors">
+            <div class="text-danger" *ngIf="mobileNumber.errors.required">Mobile number is Required</div>
+            <div class="text-danger" *ngIf="mobileNumber.errors.pattern">Mobile number must be 10 digit</div>
+          </div>
+
+              </div>
+            </div>
+            <div class=" form-group row">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn btn-outline-warning" (click)="onSignUp()">Signup/Register</button>
+              </div>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+  </div>

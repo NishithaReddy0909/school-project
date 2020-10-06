@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="form-group">
+        <table class="table-bordered table-striped">
+          <tr style="background-color:olivedrab">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+          </tr>
+          <tr *ngFor="let student of student" [ngSwitch]="getAge(student.age)">
+          <td *ngSwitchCase="0" [ngStyle]="{backgroundColor:getColorByAge(0)}">{{student.Id}}</td>
+          <td *ngSwitchCase="0" [ngStyle]="{backgroundColor:getColorByAge(0)}">{{student.Name}}</td>
+          <td *ngSwitchCase="0" [ngStyle]="{backgroundColor:getColorByAge(0)}">{{student.Age}}</td>
+
+          <td *ngSwitchCase="1" [ngStyle]="{backgroundColor:getColorByAge(1)}">{{student.Id}}</td>
+          <td *ngSwitchCase="1" [ngStyle]="{backgroundColor:getColorByAge(1)}">{{student.Name}}</td>
+          <td *ngSwitchCase="1" [ngStyle]="{backgroundColor:getColorByAge(1)}">{{student.Age}}</td>
+
+          <td *ngSwitchCase="2" [ngStyle]="{backgroundColor:getColorByAge(2)}">{{student.Id}}</td>
+          <td *ngSwitchCase="2" [ngStyle]="{backgroundColor:getColorByAge(2)}">{{student.Name}}</td>
+          <td *ngSwitchCase="2" [ngStyle]="{backgroundColor:getColorByAge(2)}">{{student.Age}}</td>
+
+          </tr>
+
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
